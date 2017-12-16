@@ -118,7 +118,8 @@ defmodule ETH.Transaction do
 
   defp to_transaction(params, private_key) do
     target_params = set_default_from(params, private_key)
-    result = target_params
+    
+    result = params # !!!
       |> set
       |> sign_transaction(private_key)
       |> Base.encode16
